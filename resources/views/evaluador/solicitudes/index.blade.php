@@ -6,7 +6,7 @@
 
 <div class="container mt-4">
 
-<h2 class="mb-4">Solicitudes Pendientes</h2>
+<h2 class="mb-4">Solicitudes Recepcionadas</h2>
 
 @if(session('success'))
 

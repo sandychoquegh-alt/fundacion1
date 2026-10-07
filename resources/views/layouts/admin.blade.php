@@ -110,9 +110,7 @@
               <!-- sidebar menu -->
               <ul class="sidebar-menu">
 
-                  <li class="header"></li>
-
-                  <br><br>
+                  <li class="header"><b>SISTEMA - VAON</b></li>
 
                   <!-- INICIO -->
                   <li class="treeview">
@@ -134,15 +132,7 @@
                       <ul class="treeview-menu">
                           <li>
                               <a href="{{ url('empresa/index') }}">
-                                  <i class="fa fa-circle-o"></i>
-                                  Listar
-                              </a>
-                          </li>
-
-                          <li>
-                              <a href="{{ url('empresa/index') }}">
-                                  <i class="fa fa-circle-o"></i>
-                                  Nueva Empresa
+                                  <i class="fa fa-circle-o"></i>Empresas Registradas
                               </a>
                           </li>
                       </ul>
@@ -153,7 +143,7 @@
                   <li class="treeview">
                       <a href="{{ route('evaluador.solicitudes.index') }}">
                           <i class="fa fa-th"></i>
-                          <span>SOLICITUDES PENDIENTES</span>
+                          <span>SOLICITUDES RECEPCIONADAS</span>
                       </a>
                   </li>
 
@@ -181,13 +171,13 @@
                                   Aprobadas
                               </a>
                           </li>
-
+                             <!--
                           <li>
                               <a href="{{ route('solicitudes.rechazadas') }}">
                                   <i class="fa fa-circle-o"></i>
                                   Rechazadas
                               </a>
-                          </li>
+                          </li>-->
 
                       </ul>
                   </li>
@@ -228,7 +218,7 @@
                   </li>
 
 
-                  <!-- CERTIFICADOS PRE-APROBADOS -->
+                  <!-- CERTIFICADOS PRE-APROBADOS 
                   <li class="treeview">
                       <a href="#">
                           <i class="fa fa-file-text"></i>
@@ -253,12 +243,12 @@
                           </li>
 
                       </ul>
-                  </li>
+                  </li>-->
 
 
                   <!-- =====================================================
                       MÓDULO CAPACITACIONES
-                  ====================================================== -->
+                  ====================================================== 
 
                   <li class="treeview">
 
@@ -272,7 +262,7 @@
 
                       <ul class="treeview-menu">
 
-                          <!-- IR AL PANEL DE CAPACITACIONES -->
+                          <!-- IR AL PANEL DE CAPACITACIONES 
                           <li>
                               <a href="http://127.0.0.1:8001/admin/dashboard">
 
@@ -283,7 +273,7 @@
                               </a>
                           </li>
 
-                          <!-- CURSOS -->
+                          <!-- CURSOS -
                           <li>
                               <a href="http://127.0.0.1:8001/admin/cursos">
 
@@ -294,8 +284,7 @@
                               </a>
                           </li>
 
-                          <!-- ESTUDIANTES -->
-                          <li>
+                          <!-- ESTUDIANTES 
                               <a href="http://127.0.0.1:8001/admin/usuariosNuevo">
 
                                   <i class="fa fa-users"></i>
@@ -305,7 +294,7 @@
                               </a>
                           </li>
 
-                          <!-- INSCRIPCIONES -->
+                          <!-- INSCRIPCIONES -
                           <li>
                               <a href="http://127.0.0.1:8001/admin/inscripciones">
 
@@ -318,24 +307,33 @@
 
                       </ul>
 
-                  </li>
+                  </li>-->
+                  <li>
+                              <a href="{{ route('admin.evaluaciones') }}">
+
+                                  <i class="fa fa-file"></i>
+
+                                  Historial del Evaluador
+
+                              </a>
+                          </li>
 
 
-                  <!-- ACCESO -->
+                  <!-- ACCESO 
                   <li class="treeview">
 
                       <a href="#">
 
                           <i class="fa fa-users"></i>
 
-                          <span>ACCESO</span>
+                          <span>ACCESO HISTORIAL DEL EVALUA </span>
 
                           <i class="fa fa-angle-left pull-right"></i>
 
                       </a>
 
                       <ul class="treeview-menu">
-
+                         <!--
                           <li>
                               <a href="configuracion/usuario">
 
@@ -344,7 +342,7 @@
                                   Usuarios
 
                               </a>
-                          </li>
+                          </li>-
 
                           <li>
                               <a href="{{ route('admin.evaluaciones') }}">
@@ -358,7 +356,7 @@
 
                       </ul>
 
-                  </li>
+                  </li>-->
 
 
                   <!-- AYUDA -->
@@ -435,54 +433,54 @@
                               @yield('js')
                               @yield('scripts')
                                <!-- Toasts -->
-<div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+                                <div id="toast-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
 
-<script>
-function showToast(message, type = 'success') {
-    const colors = {
-        success: '#4BB543',
-        error: '#FF4C4C',
-        info: '#2196F3',
-        warning: '#FFAA00'
-    };
+                                <script>
+                                function showToast(message, type = 'success') {
+                                    const colors = {
+                                        success: '#4BB543',
+                                        error: '#FF4C4C',
+                                        info: '#2196F3',
+                                        warning: '#FFAA00'
+                                    };
 
-    const toast = document.createElement('div');
-    toast.innerText = message;
-    toast.style.background = colors[type] || colors.info;
-    toast.style.color = 'white';
-    toast.style.padding = '12px 20px';
-    toast.style.marginTop = '10px';
-    toast.style.borderRadius = '8px';
-    toast.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-    toast.style.fontFamily = 'Arial, sans-serif';
-    toast.style.fontSize = '1.5rem';
-    toast.style.opacity = '0';
-    toast.style.transition = 'opacity 0.5s, transform 0.5s';
-    toast.style.transform = 'translateX(100%)';
+                                    const toast = document.createElement('div');
+                                    toast.innerText = message;
+                                    toast.style.background = colors[type] || colors.info;
+                                    toast.style.color = 'white';
+                                    toast.style.padding = '12px 20px';
+                                    toast.style.marginTop = '10px';
+                                    toast.style.borderRadius = '8px';
+                                    toast.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+                                    toast.style.fontFamily = 'Arial, sans-serif';
+                                    toast.style.fontSize = '1.5rem';
+                                    toast.style.opacity = '0';
+                                    toast.style.transition = 'opacity 0.5s, transform 0.5s';
+                                    toast.style.transform = 'translateX(100%)';
 
-    document.getElementById('toast-container').appendChild(toast);
+                                    document.getElementById('toast-container').appendChild(toast);
 
-    // Animación de entrada
-    setTimeout(() => {
-        toast.style.opacity = '1';
-        toast.style.transform = 'translateX(0)';
-    }, 50);
+                                    // Animación de entrada
+                                    setTimeout(() => {
+                                        toast.style.opacity = '1';
+                                        toast.style.transform = 'translateX(0)';
+                                    }, 50);
 
-    // Desaparece después de 4 segundos
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateX(100%)';
-        setTimeout(() => toast.remove(), 500);
-    }, 4000);
-}
+                                    // Desaparece después de 4 segundos
+                                    setTimeout(() => {
+                                        toast.style.opacity = '0';
+                                        toast.style.transform = 'translateX(100%)';
+                                        setTimeout(() => toast.remove(), 500);
+                                    }, 4000);
+                                }
 
-// Mostrar toast desde Laravel Session
-@foreach (['success', 'error', 'info', 'warning'] as $msg)
-    @if(session($msg))
-        showToast("{{ session($msg) }}", "{{ $msg }}");
-    @endif
-@endforeach
-</script>
+                                // Mostrar toast desde Laravel Session
+                                @foreach (['success', 'error', 'info', 'warning'] as $msg)
+                                    @if(session($msg))
+                                        showToast("{{ session($msg) }}", "{{ $msg }}");
+                                    @endif
+                                @endforeach
+                                </script>
 
                            </div>
                         </div>

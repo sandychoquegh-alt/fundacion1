@@ -15,41 +15,43 @@ class AuthenticatedSessionController extends Controller
 
     public function store(Request $request)
     {
+        // Validación de datos de entrada
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => ['required', 'email', 'max:255'],
+            'password' => ['required', 'string'],
         ]);
 
-        // Intento de login
-        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+        // Autenticación mediante Laravel
+        if (!Auth::attempt(
+            $request->only('email', 'password'),
+            $request->boolean('remember')
+        )) {
             return back()->withErrors([
                 'email' => 'Las credenciales no son correctas.',
             ]);
         }
 
-        // Regenerar sesión
+        // Regenerar sesión para evitar fijación de sesión
         $request->session()->regenerate();
 
         // Obtener usuario autenticado
         $user = Auth::user();
 
-        // 🔥 Redirección por rol (ORDEN CORRECTO)
+        // Redirección según el rol
         switch ($user->rol_id) {
 
-            case 1:   // ADMIN
-        return redirect()->route('empresa.dashboard');
-        break;
+            case 1: // ADMIN
+                return redirect()->route('empresa.dashboard');
 
-            case 2:   // EVALUADOR
-                return redirect()->route('evaluador.dashboard'); 
-                break;
+            case 2: // EVALUADOR
+                return redirect()->route('evaluador.dashboard');
 
-            case 3:   // EMPRESA
-                return redirect()->route('empresad.dashboard'); 
-                break;
+            case 3: // EMPRESA
+                return redirect()->route('empresad.dashboard');
 
             default:
                 Auth::logout();
+
                 return redirect('/login')->withErrors([
                     'email' => 'Su usuario no tiene un rol válido.',
                 ]);

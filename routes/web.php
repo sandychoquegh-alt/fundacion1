@@ -56,7 +56,7 @@ Route::post('/empresa/register', [RegistroEmpresaController::class, 'registrar']
 */
 
 // Dashboard Admin
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'no.cache'])->group(function () {
 
     // ADMIN
 Route::get('/empresa/dashboard', [App\Http\Controllers\Admin\DashboardController::
